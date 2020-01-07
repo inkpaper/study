@@ -13,7 +13,7 @@ class Loader
     {
         $file = self::findFile($class);
         if (file_exists($file))
-            self::requireFile($class);
+            self::requireFile($file);
     }
 
     /**
@@ -24,14 +24,14 @@ class Loader
     private static function findFile($class)
     {
         //获取文件夹
-        $dir = substr($class, 0, strpos('\\', $class));
+        $dir = substr($class, 0, strpos( $class, '\\'));
         //根据map查找文件夹，否则首字母大写
         $firstNameSpace = isset(self::$classMap[$dir]) ? self::$classMap[$dir] : __DIR__ . DIRECTORY_SEPARATOR . ucfirst($dir);
 
         //获取类名
         $className = substr($class, strlen($dir)) . '.php';
-        $filePath = strtr($firstNameSpace . $className, '\\', DIRECTORY_SEPARATOR);
-        return $filePath;
+        $fileName = strtr($firstNameSpace . $className, '\\', DIRECTORY_SEPARATOR);
+        return $fileName;
     }
 
     /**
