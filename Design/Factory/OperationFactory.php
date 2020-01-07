@@ -20,6 +20,11 @@ class OperationFactory
             case '+':
                 $operate = new OperationAdd();
                 break;
+            case '-':
+                $operate = new OperationSub();
+                break;
+            default:
+                $operate = null;
         }
         return $operate;
     }
