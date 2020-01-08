@@ -18,11 +18,8 @@ class FullReductionPromotion
                 break;
             case 2:
                 //满10减1，满200减25
-                if ($money > 200) {
-                    $money -= 25;
-                } elseif ($money > 10) {
-                    $money -= 1;
-                }
+                //PHP三元运算符从左向右结合的，括号不能省略
+                $money = $money > 200 ? $money - 25 : ($money > 10 ? $money - 1 : $money);
                 break;
             default:
                 break;
