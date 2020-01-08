@@ -28,7 +28,7 @@ class MovieAd
             $this->actor[] = $actor;
     }
 
-    public function getActor()
+    protected function getActor()
     {
         return $this->actor;
     }
@@ -38,7 +38,7 @@ class MovieAd
         $this->director = $director;
     }
 
-    public function getDirector()
+    protected function getDirector()
     {
         return $this->director;
     }
@@ -48,7 +48,7 @@ class MovieAd
         $this->money = $money;
     }
 
-    public function getMoney()
+    protected function getMoney()
     {
         return $this->money;
     }

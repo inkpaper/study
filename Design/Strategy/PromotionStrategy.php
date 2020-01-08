@@ -10,5 +10,19 @@ namespace Design\Strategy;
  */
 class PromotionStrategy
 {
+    private $strategy = null;
 
+    public function __construct()
+    {
+    }
+
+    public function setStrategy($strategy)
+    {
+        $this->strategy = $strategy;
+    }
+
+    public function getResult($money, $type)
+    {
+        return $this->strategy->getResult($money, $type);
+    }
 }
